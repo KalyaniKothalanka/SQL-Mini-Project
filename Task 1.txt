@@ -1,0 +1,70 @@
+postgres=# \c dwh
+You are now connected to database "dwh" as user "postgres".
+dwh=# \dt
+         List of relations
+ Schema |  Name  | Type  |  Owner
+--------+--------+-------+----------
+ public | region | table | postgres
+(1 row)
+
+dwh=# \copy region FROM 'C:/Users/DELL/Desktop/Class PDFs/SQL/data/region.csv' WITH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 4
+
+dwh=# \dt
+           List of relations
+ Schema |   Name    | Type  |  Owner
+--------+-----------+-------+----------
+ public | region    | table | postgres
+ public | sales_rep | table | postgres
+(2 rows)
+
+dwh=#  \copy sales_rep FROM 'C:/Users/DELL/Desktop/Class PDFs/SQL/data/s
+ales_rep.csv' WITH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 50
+
+
+dwh=# \dt
+           List of relations
+ Schema |   Name    | Type  |  Owner
+--------+-----------+-------+----------
+ public | accounts  | table | postgres
+ public | region    | table | postgres
+ public | sales_rep | table | postgres
+(3 rows)
+
+
+dwh=# \copy accounts from 'C:/Users/DELL/Desktop/Class PDFs/SQL/data/acc
+ounts.csv' WITH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 351
+
+dwh=# \dt
+           List of relations
+ Schema |    Name    | Type  |  Owner
+--------+------------+-------+----------
+ public | accounts   | table | postgres
+ public | region     | table | postgres
+ public | sales_rep  | table | postgres
+ public | web_events | table | postgres
+(4 rows)
+
+
+dwh=# \copy web_events FROM 'C:/Users/DELL/Desktop/Class PDFs/SQL/data/w
+eb_events.csv' WITH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 9073
+
+dwh=# \dt
+           List of relations
+ Schema |    Name    | Type  |  Owner
+--------+------------+-------+----------
+ public | accounts   | table | postgres
+ public | orders     | table | postgres
+ public | region     | table | postgres
+ public | sales_rep  | table | postgres
+ public | web_events | table | postgres
+(5 rows)
+
+
+dwh=# \copy orders FROM 'C:/Users/DELL/Desktop/Class PDFs/SQL/data/order
+s.csv' WITH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 6912
+dwh=#
